@@ -28,6 +28,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      # Install Bun
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
       # Add or replace dependency steps here
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
@@ -42,14 +46,6 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bin/rake
-      # Generate coverage report
-      - name: Validate Coverage
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage
-          path: coverage
-          minimum_suite_coverage: 85
-          minimum_file_coverage: 70
 
   lint:
     runs-on: ubuntu-latest

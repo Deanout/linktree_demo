@@ -1,0 +1,32 @@
+# Defaults for Ruby on Rails 7
+
+# .rubocop.yml
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "db/schema.rb"
+    - "Gemfile"
+    - "lib/tasks/*.rake"
+    - "bin/*"
+    - "config/puma.rb"
+    - "config/spring.rb"
+    - "config/environments/development.rb"
+    - "config/environments/production.rb"
+    - "spec/spec_helper.rb"
+    # Need to exclude vendor because of panolint requirement
+    - "vendor/**/*"
+Style/Documentation:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+# Class has too many lines
+Metrics/ClassLength:
+  Enabled: false
+# Block has too many lines
+Metrics/BlockLength:
+  Enabled: false
+# Line is too long
+Layout/LineLength:
+  Enabled: false

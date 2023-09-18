@@ -1,22 +1,29 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class AdminControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
+  include Devise::Test::IntegrationHelpers
+  setup do
+    @user = users(:one)
+    sign_in @user
+  end
+  test 'should get index' do
     get admin_index_url
     assert_response :success
   end
 
-  test "should get appearance" do
+  test 'should get appearance' do
     get admin_appearance_url
     assert_response :success
   end
 
-  test "should get analytics" do
+  test 'should get analytics' do
     get admin_analytics_url
     assert_response :success
   end
 
-  test "should get settings" do
+  test 'should get settings' do
     get admin_settings_url
     assert_response :success
   end
