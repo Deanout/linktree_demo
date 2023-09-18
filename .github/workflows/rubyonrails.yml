@@ -46,14 +46,6 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bin/rake
-      # Generate coverage report
-      - name: Validate Coverage
-        uses: actions/upload-artifact@v3
-        with:
-          name: coverage
-          path: coverage
-          minimum_suite_coverage: 85
-          minimum_file_coverage: 70
 
   lint:
     runs-on: ubuntu-latest
