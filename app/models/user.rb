@@ -9,6 +9,8 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :username, use: :slugged
 
+  has_one_attached :avatar
+
   normalizes :email, with: ->(email) { email.strip.downcase }
 
   # Only allow letters and numbers in username, because we use it in URLs
