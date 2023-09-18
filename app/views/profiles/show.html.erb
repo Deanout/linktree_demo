@@ -1,1 +1,5 @@
 <h1><%= @user.username %></h1>
+<%# User Profile 300x300 %>
+<div class="avatar">
+  <%= image_tag(@user.avatar, class: "img-fluid rounded-circle" ) %>
+</div>
