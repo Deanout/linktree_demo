@@ -30,7 +30,7 @@ class User < ApplicationRecord
     conditions = warden_conditions.dup
     if (login = conditions.delete(:login))
       where(conditions.to_h).where(['lower(username) = :value OR lower(email) = :value', { value: login.downcase }]).first
-    elsif conditions.has_key?(:username) || conditions.has_key?(:email)
+    elsif conditions.key?(:username) || conditions.key?(:email)
       where(conditions.to_h).first
     end
   end
@@ -39,7 +39,7 @@ class User < ApplicationRecord
 
   RESERVED_WORDS = %w[
     admin analytics appearance settings up users health rails
-  ]
+  ].freeze
 
   def username_not_reserved
     return unless RESERVED_WORDS.include?(username)
