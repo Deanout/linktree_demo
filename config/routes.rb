@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'admin#index'
+  get 'admin/index'
   get 'admin/appearance'
   get 'admin/analytics'
   get 'admin/settings'
