@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  # Create routes for /:id for users, but constrain the routes to not be in the list of reserved words
+  # (e.g. admin, analytics, appearance, settings, up, etc.)
+  get '/:slug', to: 'profiles#show', as: :user
+
   devise_for :users
   root 'admin#index'
   get 'admin/index'

@@ -6,15 +6,19 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  normalizes :username, with: ->(username) { username.downcase }
+  extend FriendlyId
+  friendly_id :username, use: :slugged
+
   normalizes :email, with: ->(email) { email.strip.downcase }
 
   # Only allow letters and numbers in username, because we use it in URLs
-  validates :username, 
-    presence: true, 
-    uniqueness: { case_sensitive: false }, 
-    format: { with: /\A[a-zA-Z0-9]+\z/ }, 
-    length: { minimum: 3, maximum: 20 }
+  validates :username,
+            presence: true,
+            uniqueness: { case_sensitive: false },
+            format: { with: /\A[a-zA-Z0-9]+\z/ },
+            length: { minimum: 3, maximum: 20 }
+  validate :username_not_reserved
+  validate :email_not_reserved
 
   attr_writer :login
 
@@ -29,5 +33,23 @@ class User < ApplicationRecord
     elsif conditions.has_key?(:username) || conditions.has_key?(:email)
       where(conditions.to_h).first
     end
+  end
+
+  private
+
+  RESERVED_WORDS = %w[
+    admin analytics appearance settings up users health rails
+  ]
+
+  def username_not_reserved
+    return unless RESERVED_WORDS.include?(username)
+
+    errors.add(:username, 'is reserved and cannot be used')
+  end
+
+  def email_not_reserved
+    return unless RESERVED_WORDS.any? { |word| email.include?(word) }
+
+    errors.add(:email, 'contains a reserved word')
   end
 end
