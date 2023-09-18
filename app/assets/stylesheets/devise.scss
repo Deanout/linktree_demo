@@ -1,0 +1,25 @@
+.devise-card {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border-radius: 0.35rem;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 2.25rem;
+    
+    // Center Contents
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    // Set width to be size of card
+    max-width: 25rem;
+    margin: 0 auto;
+}
+
+.devise-card-title {
+    margin-bottom: 1.5rem;  
+}
+
+.devise-card-button {
+    margin-top: 1.5rem;
+    width: 100%;
+}

@@ -1,13 +1,10 @@
 class AdminController < ApplicationController
-  def index
-  end
+  before_action :authenticate_user!
+  def index; end
 
-  def appearance
-  end
+  def appearance; end
 
-  def analytics
-  end
+  def analytics; end
 
-  def settings
-  end
+  def settings; end
 end
