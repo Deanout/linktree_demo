@@ -14,6 +14,11 @@
                 label: false,
                 placeholder: "Name...",
                 input_html: { autocomplete: "name" } %>
+      <%= f.input :bio,
+                required: true,
+                label: false,
+                placeholder: "About you...",
+                input_html: { autocomplete: "name" } %>
       <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
