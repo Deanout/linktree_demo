@@ -10,4 +10,9 @@
       <p><%= @user.bio %></p>
     </div>
   </div>
+  <div class="row">
+    <% @links.each do |link| %>
+      <%= render partial: "links/link", locals: { link: link } %>
+    <% end %>
+  </div>
 </div>

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   friendly_id :username, use: :slugged
 
   has_one_attached :avatar
+  has_many :links, dependent: :destroy
 
   normalizes :email, with: ->(email) { email.strip.downcase }
 
