@@ -1,5 +1,13 @@
-<h1><%= @user.name %></h1>
-<%# User Profile 300x300 %>
-<div class="avatar">
-  <%= image_tag(@user.avatar, class: "img-fluid rounded-circle" ) %>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="avatar">
+        <%= image_tag(@user.avatar, class: "img-fluid rounded-circle" ) %>
+      </div>
+    </div>
+    <div class="col-8">
+      <h1><%= @user.name.nil? ? @user.username : @user.name %></h1>
+      <p><%= @user.bio %></p>
+    </div>
+  </div>
 </div>
