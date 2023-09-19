@@ -1,11 +1,23 @@
 <div class="row link"
 data-sortable-update-url="<%= link_position_path(link) %>">
-  <div class="col-2">Position: [<%= link.position%>] </div>
+  <div class="col-2"></div>
   <div class="col-8">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title"><%= link.name %></h5>
-        <a href="<%= link.url %>" class="btn btn-primary">Go to link</a>
+        <div class="row">
+          <div class="col-10">
+            <%= link.url %>
+          </div>
+          <div class="col-2">
+            <div class="form-check form-switch">
+              <%= render partial: "links/admin_active_toggle", locals: { link: link } %>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group btn-group-sm mt-2" role="group" aria-label="...">
+          <%= link_to "Root", root_path, class:"btn btn-primary" %>
+        </div>
       </div>
     </div>
   </div>

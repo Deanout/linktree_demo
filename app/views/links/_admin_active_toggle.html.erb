@@ -1,0 +1,12 @@
+<turbo-frame id="link_active_toggle_<%= link.id %>">
+  <%= simple_form_for link, 
+  url: toggle_active_link_path(link), 
+  data: { turbo: true } do |f| %>
+    <%= f.input :active, 
+        as: :boolean, 
+        inline_label: false, 
+        label: false, 
+        input_html: { onchange: 'this.form.submit();' } 
+    %>
+  <% end %>
+</turbo-frame>

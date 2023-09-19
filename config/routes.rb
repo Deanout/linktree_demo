@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # (e.g. admin, analytics, appearance, settings, up, etc.)
   get '/:slug', to: 'profiles#show', as: :user
 
-  resources :links, only: %i[create update destroy]
+  resources :links, only: %i[create update destroy] do
+    patch 'toggle_active', on: :member
+  end
   # link_position_path update
   patch '/link_position/:id', to: 'links#update_position', as: :link_position
 
