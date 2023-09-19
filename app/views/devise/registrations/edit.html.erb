@@ -9,6 +9,11 @@
       <% end %>
       <%= f.input :username, required: true, label: false, placeholder: "Username..." %>
       <%= f.input :avatar, required: false %>
+      <%= f.input :name,
+                required: true,
+                label: false,
+                placeholder: "Name...",
+                input_html: { autocomplete: "name" } %>
       <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
