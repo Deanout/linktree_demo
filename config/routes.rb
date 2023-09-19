@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # (e.g. admin, analytics, appearance, settings, up, etc.)
   get '/:slug', to: 'profiles#show', as: :user
 
+  resources :links, only: %i[create update destroy]
+  # link_position_path update
+  patch '/link_position/:id', to: 'links#update_position', as: :link_position
+
   devise_for :users
   root 'admin#index'
   get 'admin/index'

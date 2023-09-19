@@ -2,7 +2,9 @@
 
 class AdminController < ApplicationController
   before_action :authenticate_user!
-  def index; end
+  def index
+    @links = current_user.links.order(position: :asc)
+  end
 
   def appearance; end
 
