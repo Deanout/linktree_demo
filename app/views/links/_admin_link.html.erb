@@ -15,7 +15,12 @@
           </div>
         </div>
         <div class="btn-group btn-group-sm mt-2" role="group" aria-label="...">
-          <%= link_to "Root", root_path, class:"btn btn-primary" %>
+          <%= link_to "Visit Link", 
+            url_for(link.url), 
+            class:"btn btn-primary", 
+            target: "_blank",
+            rel: "noopener noreferrer" %>
+          <%= button_to "Delete", link, class: "btn btn-danger borderless", method: :delete, data: { confirm: "Are you sure?" } %>
         </div>
       </div>
     </div>
