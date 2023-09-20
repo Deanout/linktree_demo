@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
+import EditLinkController from "./edit_link_controller"
+application.register("edit-link", EditLinkController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
-
-import LinkToggleController from "./link_toggle_controller"
-application.register("link-toggle", LinkToggleController)
