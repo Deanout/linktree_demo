@@ -20,7 +20,10 @@ class LinksController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @link.destroy
+    redirect_to admin_index_path, notice: 'Link was successfully destroyed.'
+  end
 
   def update_position
     position = params.dig(:link, :position).to_i
