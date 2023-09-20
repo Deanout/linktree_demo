@@ -5,7 +5,7 @@
   <div id="links" 
     data-controller="sortable" 
     data-sortable-resource-name-value="link"
-    data-sortable-handle-value=".link">
+    data-sortable-handle-value=".link_handle">
     <% @links.each do |link| %>
       <%= render partial: "links/admin_link", locals: { link: link } %>
     <% end %>
