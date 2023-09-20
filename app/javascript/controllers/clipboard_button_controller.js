@@ -1,10 +1,14 @@
 import { Controller } from "@hotwired/stimulus";
+import * as bootstrap from "bootstrap";
 
-// Connects to data-controller="clipboard-button"
 export default class extends Controller {
   static values = { url: String };
+
   connect() {
-    console.log("URL:", this.urlValue);
+    this.copyToast = document.getElementById("copy-toast");
+
+    // Initialize Bootstrap 5 toast
+    this.bsToast = new bootstrap.Toast(this.copyToast);
   }
 
   // Copy to clipboard action
@@ -12,10 +16,10 @@ export default class extends Controller {
     e.preventDefault();
     const url = this.urlValue;
     navigator.clipboard.writeText(url).then(() => {
-      this.element.classList.add("copied");
+      this.bsToast.show();
       setTimeout(() => {
-        this.element.classList.remove("copied");
-      }, 1000);
+        this.bsToast.hide();
+      }, 5000);
     });
   }
 }

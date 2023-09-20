@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-6 d-flex align-items-center justify-content-center">
+    <%= link_to "#", 
+        class: "btn btn-outline-secondary borderless", 
+        data: { 
+        controller: "clipboard-button",
+        clipboard_button_url_value: url_for(link.url),
+        action: "click->clipboard-button#copy"
+        }, 
+        role: "button" do %>
+      <i class="bi bi-share"></i>
+    <% end %>
+  </div>
+  <div class="col-6 d-flex align-items-center justify-content-center">
+    <div class="form-check form-switch form-switch-fixer">
+      <%= render partial: "links/admin_active_toggle", locals: { link: link } %>
+    </div>
+  </div>
+</div>
