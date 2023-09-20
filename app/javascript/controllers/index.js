@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ClipboardButtonController from "./clipboard_button_controller"
+application.register("clipboard-button", ClipboardButtonController)
+
 import EditLinkController from "./edit_link_controller"
 application.register("edit-link", EditLinkController)
 

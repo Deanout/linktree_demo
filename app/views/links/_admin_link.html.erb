@@ -9,8 +9,23 @@
             <%= render partial: "links/inline_form", locals: { link: link } %>
           </div>
           <div class="col-2">
-            <div class="form-check form-switch">
-              <%= render partial: "links/admin_active_toggle", locals: { link: link } %>
+            <div class="row">
+              <div class="col-6">
+                <%# Copy to clipboard button %>
+                <%= link_to "#", 
+                class: "btn btn-outline-secondary borderless", 
+                data: { 
+                  controller: "clipboard-button",
+                  clipboard_button_url_value: url_for(link.url),
+                  action: "click->clipboard-button#copy"
+                }, 
+                role: "button" do %>
+                  <i class="bi bi-share"></i>
+                <% end %>
+              </div>
+              <div class="col-6 form-check form-switch">
+                <%= render partial: "links/admin_active_toggle", locals: { link: link } %>
+              </div>
             </div>
           </div>
         </div>
