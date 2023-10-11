@@ -1,6 +1,11 @@
 <div class="container">
-  <h1><%= current_user.username %></h1>
-  <%= render partial: "links/form", locals: { link: Link.new } %>
+  <div class="text-center m-5">
+    <h1 class="text-center"><%= current_user.username %></h1>
+    <%= render partial: "links/share_button", locals: { url: profile_url(current_user) } %>
+  </div>
+  <div class="text-center m-3">
+    <%= render partial: "links/form", locals: { link: Link.new } %>
+  </div>
   <hr />
   <div id="links" 
     data-controller="sortable" 
@@ -11,3 +16,4 @@
     <% end %>
   </div>
 </div>
+<%= render partial: "links/copy_toast" %>

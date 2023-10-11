@@ -1,0 +1,10 @@
+<%= link_to url, 
+    class: "btn btn-outline-secondary btn-sm", 
+    data: { 
+      controller: "clipboard-button",
+      clipboard_button_url_value: url,
+      action: "click->clipboard-button#copy"
+    }, 
+    role: "button" do %>
+  <span class="d-none d-lg-inline">Share</span> <i class="bi bi-share"></i>
+<% end %>

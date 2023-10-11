@@ -5,28 +5,11 @@
       <div class="card-body">
         <h5 class="card-title"><i class="bi bi-grip-vertical link_handle"></i><%= link.name %></h5>
         <div class="row">
-          <div class="col-10">
+          <div class="col-8 link-centered">
             <%= render partial: "links/inline_form", locals: { link: link } %>
           </div>
-          <div class="col-2">
-            <div class="row">
-              <div class="col-6">
-                <%# Copy to clipboard button %>
-                <%= link_to "#", 
-                class: "btn btn-outline-secondary borderless", 
-                data: { 
-                  controller: "clipboard-button",
-                  clipboard_button_url_value: url_for(link.url),
-                  action: "click->clipboard-button#copy"
-                }, 
-                role: "button" do %>
-                  <i class="bi bi-share"></i>
-                <% end %>
-              </div>
-              <div class="col-6 form-check form-switch">
-                <%= render partial: "links/admin_active_toggle", locals: { link: link } %>
-              </div>
-            </div>
+          <div class="col-4">
+            <%= render "links/link_actions", link: link %>
           </div>
         </div>
         <div class="btn-group btn-group-sm mt-2" role="group" aria-label="...">

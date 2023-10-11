@@ -4,7 +4,8 @@ require 'test_helper'
 
 class ProfilesControllerTest < ActionDispatch::IntegrationTest
   test 'should get show' do
-    get profiles_show_url
+    @user = users(:one)
+    get user_path(@user.username)
     assert_response :success
   end
 end

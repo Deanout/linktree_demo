@@ -10,6 +10,9 @@ require 'active_support/core_ext/integer/time'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Configure the URL for the test environment.
+  config.default_url_options = { host: 'localhost', port: 3000 }
+
   # While tests run files are not watched, reloading is not necessary.
   config.enable_reloading = false
 
