@@ -5,9 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+  username: "one"
   email: "one@example.com"
+  slug: "one"
 # column: value
 #
 two:
   email: "two@example.com"
+  username: "two"
+  slug: "two"
 # column: value

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LinksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_link, only: %i[update destroy update_position toggle_active]
