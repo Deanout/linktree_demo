@@ -11,8 +11,15 @@
     margin: auto !important;
 }
 
-.custom-switch-center .form-check-input {
-    padding: 0;
+.custom-switch-center {
+    padding-left: 0em !important;
     margin-top: 13px; /* Adjust based on your needs */
-  }
-  
+}
+
+// Creates a border around the iFrame that looks like a phone.
+.phone-border {
+    border: 1rem solid #000;
+    border-radius: 5%;
+    padding: 10px;
+    margin: 10px;
+}
