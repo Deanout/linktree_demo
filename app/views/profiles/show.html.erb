@@ -1,14 +1,8 @@
 <div class="container">
-  <div class="row">
-    <div class="col-4">
-      <div class="avatar">
-        <%= image_tag(@user.avatar, class: "img-fluid rounded-circle" ) if @user.avatar.attached? %>
-      </div>
-    </div>
-    <div class="col-8">
-      <h1><%= @user.name.nil? ? @user.username : @user.name %></h1>
-      <p><%= @user.bio %></p>
-    </div>
+  <div class="text-center m-5">
+    <%= image_tag(@user.avatar, class: "img-fluid rounded-circle avatar" ) if @user.avatar.attached? %>
+    <h1><%= @user.name.nil? ? @user.username : @user.name %></h1>
+    <p><%= @user.bio %></p>
   </div>
   <div class="row">
     <% @links.each do |link| %>

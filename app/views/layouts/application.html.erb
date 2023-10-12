@@ -9,7 +9,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-    <%= render "shared/navbar" unless devise_controller? %>
+    <%# Render navbar unless in a devise controller or on the profile show page %>
+    <%= render "shared/navbar" unless devise_controller? || controller_name == "profiles" && action_name == "show" %>
     <%= yield %>
   </body>
 </html>
