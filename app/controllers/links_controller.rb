@@ -35,10 +35,13 @@ class LinksController < ApplicationController
   def toggle_active
     active_value = params.dig(:link, :active)
     @link.update(active: active_value)
+    request.format = :turbo_stream
 
     respond_to do |format|
       format.html
-      format.turbo_stream
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update('preview', partial: 'admin/preview')
+      end
     end
   end
 

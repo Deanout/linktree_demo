@@ -1,2 +1,33 @@
-<h1>Admin#appearance</h1>
-<p>Find me in app/views/admin/appearance.html.erb</p>
+<h1>Profile</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="mt-5 mb-5 devise-card">
+        <%= simple_form_for(current_user, url: admin_update_path) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :username, required: true, label: false, placeholder: "Username..." %>
+            <%= f.input :avatar, required: false %>
+            <%= f.input :name,
+                required: true,
+                label: false,
+                placeholder: "Name...",
+                input_html: { autocomplete: "name" } %>
+            <%= f.input :bio,
+                required: true,
+                label: false,
+                placeholder: "About you...",
+                input_html: { autocomplete: "name" } %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Update", class:"btn btn-primary devise-card-button" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4">
+      <%= render partial: "admin/preview" %>
+    </div>
+  </div>
+</div>
+<%= render partial: "links/copy_toast" %>
