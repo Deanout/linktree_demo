@@ -4,6 +4,12 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title"><%= link.name %></h5>
+        <%= link_to link.url, 
+          target: "_blank", 
+          class: "linkable btn btn-secondary",
+          data: { controller: "links", action: "click->links#click", link: link } do %>
+          <%= link.url %>
+        <% end %>
         <a href="<%= link.url %>" class="btn btn-primary">Go to link</a>
       </div>
     </div>

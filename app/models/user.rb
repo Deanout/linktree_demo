@@ -10,6 +10,7 @@ class User < ApplicationRecord
   friendly_id :username, use: :slugged
 
   has_one_attached :avatar
+  has_many :visits, class_name: 'Ahoy::Visit'
   has_many :links, dependent: :destroy
 
   normalizes :email, with: ->(email) { email.strip.downcase }
@@ -39,6 +40,24 @@ class User < ApplicationRecord
     elsif conditions.key?(:username) || conditions.key?(:email)
       where(conditions.to_h).first
     end
+  end
+
+  # Want the range to be 30 days?
+
+  def get_daily_profile_views
+    daily_views = Ahoy::Event.where(name: 'Viewed Dashboard', user_id: id).group_by_day(:time).count
+  end
+
+  def get_daily_link_clicks
+    daily_link_clicks = Ahoy::Event.where(name: 'Clicked Link', user_id: id).group_by_day(:time).count
+  end
+
+  def get_daily_views_by_device_type
+    # Filter by last 7 days
+    # daily_views_by_device_type = Ahoy::Event.joins(:visit).where(name: 'Viewed Dashboard', user_id: id)
+    #                                         # .where('time > ? AND time < ?', 7.days.ago, Time.now)
+    #                                         .group('visits.device_type').count
+    daily_views_by_device_type = visits.group(:device_type).count
   end
 
   private

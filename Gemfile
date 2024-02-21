@@ -86,3 +86,7 @@ gem 'simple_form', '~> 5.2'
 gem "friendly_id", "~> 5.5"
 
 gem "acts_as_list", "~> 1.1"
+
+gem "ahoy_matey", "~> 5.0"
+gem 'groupdate'
+gem 'apexcharts'

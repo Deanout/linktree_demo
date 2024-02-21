@@ -1,2 +1,17 @@
-<h1>Admin#analytics</h1>
-<p>Find me in app/views/admin/analytics.html.erb</p>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<div class="container mt-5">
+  <h1>Admin#analytics</h1>
+  <%= mixed_charts({ theme: "palette2", yaxis: {min: 0, forceNiceScale: true}, stacked: true}) do %>
+    <% column_chart(name: "Total Views", data: @daily_profile_views ) %>
+    <% column_chart(name: "Link Clicks", data: @daily_link_clicks) %>
+  <% end %>
+  <h3>Device Views</h3>
+  <!-- Remember to cover how to find the datalabels docs in the gem documentation,
+  and then how you converted that to the legend configuration using the apex
+  js library docs. -->
+  <%= donut_chart(@daily_device_views_by_type, legend: {
+  labels: {
+    colors: '#FFF' # Or an array to individually style.
+  }
+}) %>
+</div>

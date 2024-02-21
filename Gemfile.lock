@@ -78,6 +78,11 @@ GEM
       activerecord (>= 4.2)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    ahoy_matey (5.0.2)
+      activesupport (>= 6.1)
+      device_detector (>= 1)
+      safely_block (>= 0.4)
+    apexcharts (0.2.0)
     ast (2.4.2)
     base64 (0.1.1)
     bcrypt (3.1.19)
@@ -108,6 +113,7 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    device_detector (1.1.2)
     devise (4.9.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -129,6 +135,8 @@ GEM
     friendly_id (5.5.0)
       activerecord (>= 4.0.0)
     globalid (1.2.1)
+      activesupport (>= 6.1)
+    groupdate (6.4.0)
       activesupport (>= 6.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -254,6 +262,7 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    safely_block (0.4.0)
     selenium-webdriver (4.12.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -311,6 +320,8 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list (~> 1.1)
+  ahoy_matey (~> 5.0)
+  apexcharts
   bootsnap
   brakeman
   bundler-audit
@@ -322,6 +333,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   friendly_id (~> 5.5)
+  groupdate
   jbuilder
   jsbundling-rails
   pg (~> 1.1)

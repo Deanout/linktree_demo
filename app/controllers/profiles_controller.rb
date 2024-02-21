@@ -8,5 +8,6 @@ class ProfilesController < ApplicationController
     redirect_to root_path and return unless @user
 
     @links = @user.links.where(active: true).order(position: :asc)
+    ahoy.track 'Viewed Dashboard', user: @user
   end
 end
