@@ -2,15 +2,19 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application";
+import { application } from "./application"
 
-import ClipboardButtonController from "./clipboard_button_controller";
-application.register("clipboard-button", ClipboardButtonController);
+import ClipboardButtonController from "./clipboard_button_controller"
+application.register("clipboard-button", ClipboardButtonController)
 
-import EditLinkController from "./edit_link_controller";
-application.register("edit-link", EditLinkController);
+import EditLinkController from "./edit_link_controller"
+application.register("edit-link", EditLinkController)
 
-import HelloController from "./hello_controller";
-application.register("hello", HelloController);
-import SubmitOnChangeController from "./submit_on_change_controller";
-application.register("submit-on-change", SubmitOnChangeController);
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)
+
+import LinksController from "./links_controller"
+application.register("links", LinksController)
+
+import SubmitOnChangeController from "./submit_on_change_controller"
+application.register("submit-on-change", SubmitOnChangeController)
