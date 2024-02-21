@@ -25,6 +25,9 @@ class User < ApplicationRecord
 
   attr_writer :login
 
+  # Maybe the user should be the owner of the theme?
+  belongs_to :profile_theme, class_name: 'Theme', optional: true
+
   def login
     @login || username || email
   end

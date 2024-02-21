@@ -1,5 +1,5 @@
-<h1>Profile</h1>
 <div class="container">
+  <h1>Profile</h1>
   <div class="row">
     <div class="col-8">
       <div class="mt-5 mb-5 devise-card">
@@ -24,10 +24,15 @@
           </div>
         <% end %>
       </div>
+      <div class="mt-5 mb-5 devise-card">
+        <h3>Theme(s)</h3>
+        <%= render partial: "themes/profile_theme_selector" %>
+      </div>
     </div>
     <div class="col-4">
       <%= render partial: "admin/preview" %>
     </div>
   </div>
+  <div class="row mt-5">
+  </div>
 </div>
-<%= render partial: "links/copy_toast" %>

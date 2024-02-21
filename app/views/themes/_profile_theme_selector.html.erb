@@ -1,0 +1,12 @@
+<%= simple_form_for(current_user, url: admin_update_theme_url) do |f| %>
+  <!-- Dropdown select theme by name but send id of theme back to server. -->
+  <%= f.input :profile_theme_id, 
+                collection: Theme.all, 
+                label_method: :name, 
+                value_method: :id, 
+                include_blank: false, 
+                label: false %>
+  <div class="form-actions">
+    <%= f.button :submit, "Update Theme", class: "btn btn-primary devise-card-button" %>
+  </div>
+<% end %>

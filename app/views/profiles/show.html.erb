@@ -1,12 +1,14 @@
-<div class="container">
-  <div class="text-center m-5">
-    <%= image_tag(@user.avatar, class: "img-fluid rounded-circle avatar" ) if @user.avatar.attached? %>
-    <h1><%= @user.name.nil? ? @user.username : @user.name %></h1>
-    <p><%= @user.bio %></p>
-  </div>
-  <div class="row">
-    <% @links.each do |link| %>
-      <%= render partial: "links/link", locals: { link: link } %>
-    <% end %>
+<div class="--space-theme">
+  <div class="container body">
+    <div class="text-center m-5">
+      <%= image_tag(@user.avatar, class: "img-fluid rounded-circle avatar" ) if @user.avatar.attached? %>
+      <h1><%= @user.name.nil? ? @user.username : @user.name %></h1>
+      <p><%= @user.bio %></p>
+    </div>
+    <div class="row">
+      <% @links.each do |link| %>
+        <%= render partial: "links/link", locals: { link: link } %>
+      <% end %>
+    </div>
   </div>
 </div>

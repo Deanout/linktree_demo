@@ -1,0 +1,30 @@
+.--space-theme {
+  // Use the avatar class from default.scss and override as needed
+  .avatar {
+    border-color: #00012f; // Example of overriding a property
+  }
+
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .btn-primary {
+    background-color: #00012f;
+    color: #fff;
+    &:hover {
+      background-color: #00014e;
+      color: #fff;
+    }
+  }
+
+  // Add or override other space-specific styles here
+}
