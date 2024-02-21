@@ -6,6 +6,15 @@
       <p><%= @user.bio %></p>
     </div>
     <div class="row">
+      <div class="text-center mb-5">
+        <!-- @user.socials.where(enabled: true) -->
+        <% @user.socials.where(active: true).each do |social| %>
+          <i class="<%= social.icon %>"></i>
+          <%= link_to social.name, social.url %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
       <% @links.each do |link| %>
         <%= render partial: "links/link", locals: { link: link } %>
       <% end %>

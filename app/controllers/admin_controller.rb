@@ -20,6 +20,8 @@ class AdminController < ApplicationController
 
   def settings; end
 
+  def mange_socials; end
+
   def update
     current_user.update(user_params)
     redirect_to admin_appearance_path

@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   # Update theme for profile pages on appearance page
   patch 'admin/update_theme', to: 'admin#update_theme', as: :admin_update_theme
 
+  get 'admin/manage_socials', to: 'admin#manage_socials', as: :admin_manage_socials
+  patch 'admin/update_socials', to: 'admin#update_socials', as: :admin_update_socials
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

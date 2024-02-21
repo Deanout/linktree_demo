@@ -19,7 +19,20 @@
       </div>
     </div>
     <div class="col-4">
-        <%= render partial: "admin/preview" %>
+      <%= render partial: "admin/preview" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Social Links</h3>
+      <%= link_to "Social Selector", admin_manage_socials_path %>
+      <%= turbo_frame_tag "modal" do %>
+        <% 10.times do %>
+          <div class="row">
+            <i class="bi bi-facebook"></i>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

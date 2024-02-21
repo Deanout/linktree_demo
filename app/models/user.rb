@@ -11,7 +11,9 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :visits, class_name: 'Ahoy::Visit'
+
   has_many :links, dependent: :destroy
+  has_many :socials, dependent: :destroy
 
   normalizes :email, with: ->(email) { email.strip.downcase }
 

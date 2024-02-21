@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <%= simple_form_for(current_user, url: admin_update_socials_path) do |f| %>
+    <div class="row">
+      <div class="col">
+        <h3>Social Links</h3>
+        <% 10.times do %>
+          <div class="row mb-2">
+            <div class="col">
+              <div class="form-group">
+                <i class="bi bi-facebook"></i>
+                <input>
+                Enabled?
+                <input type="checkbox">
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
