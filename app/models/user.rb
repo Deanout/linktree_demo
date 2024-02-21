@@ -44,20 +44,20 @@ class User < ApplicationRecord
 
   # Want the range to be 30 days?
 
-  def get_daily_profile_views
-    daily_views = Ahoy::Event.where(name: 'Viewed Dashboard', user_id: id).group_by_day(:time).count
+  def daily_profile_views
+    Ahoy::Event.where(name: 'Viewed Dashboard', user_id: id).group_by_day(:time).count
   end
 
-  def get_daily_link_clicks
-    daily_link_clicks = Ahoy::Event.where(name: 'Clicked Link', user_id: id).group_by_day(:time).count
+  def daily_link_clicks
+    Ahoy::Event.where(name: 'Clicked Link', user_id: id).group_by_day(:time).count
   end
 
-  def get_daily_views_by_device_type
+  def daily_views_by_device_type
     # Filter by last 7 days
     # daily_views_by_device_type = Ahoy::Event.joins(:visit).where(name: 'Viewed Dashboard', user_id: id)
     #                                         # .where('time > ? AND time < ?', 7.days.ago, Time.now)
     #                                         .group('visits.device_type').count
-    daily_views_by_device_type = visits.group(:device_type).count
+    visits.group(:device_type).count
   end
 
   private

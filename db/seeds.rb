@@ -34,7 +34,7 @@ class RequestFaker
 end
 
 Ahoy.geocode = false
-ahoy = Ahoy::Tracker.new(request: RequestFaker.new)
+Ahoy::Tracker.new(request: RequestFaker.new)
 
 user = User.first
 3.times do

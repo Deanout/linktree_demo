@@ -9,12 +9,12 @@ class AdminController < ApplicationController
   def appearance; end
 
   def analytics
-    @daily_profile_views = current_user.get_daily_profile_views
-    @daily_link_clicks = current_user.get_daily_link_clicks
-    @daily_device_views = current_user.get_daily_views_by_device_type
+    @daily_profile_views = current_user.daily_profile_views
+    @daily_link_clicks = current_user.daily_link_clicks
+    @daily_device_views = current_user.daily_views_by_device_type
 
     @daily_device_views_by_type = @daily_device_views.map do |device, count|
-      { name: "#{device}", data: count }
+      { name: device.to_s, data: count }
     end
   end
 
