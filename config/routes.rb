@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :themes
   # Create routes for /:id for users, but constrain the routes to not be in the list of reserved words
   # (e.g. admin, analytics, appearance, settings, up, etc.)
   get '/:slug', to: 'profiles#show', as: :user
@@ -18,6 +19,9 @@ Rails.application.routes.draw do
   get 'admin/analytics'
   get 'admin/settings'
   patch 'admin/update', to: 'admin#update', as: :admin_update
+  # Update theme for profile pages on appearance page
+  patch 'admin/update_theme', to: 'admin#update_theme', as: :admin_update_theme
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

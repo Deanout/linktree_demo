@@ -2,6 +2,7 @@
 
 class ProfilesController < ApplicationController
   layout 'profile', only: [:show]
+
   def show
     @user = User.find_by(slug: params[:slug].downcase)
     redirect_to root_path and return unless @user
