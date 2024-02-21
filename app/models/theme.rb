@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Theme < ApplicationRecord
   # Hey Future Dean,
   # Theme types are used to determine between profile or admin dashboard themes probably.
