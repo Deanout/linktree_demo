@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'open-uri'
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -11,6 +12,27 @@
 #   end
 
 # request_faker.rb
+
+def gravatar_url_for(email, **options)
+  hash = Digest::MD5.hexdigest(email&.downcase || '')
+  options.reverse_merge!(default: :mp, rating: :pg, size: 48)
+  "https://secure.gravatar.com/avatar/#{hash}.png?#{options.to_param}"
+end
+
+Theme.create(name: 'Space', theme_type: 'dark', css_value: '--space-theme')
+Theme.create(name: 'Light', theme_type: 'light', css_value: '--light-theme')
+
+default_theme_id = Theme.default_theme&.id
+theme_params = { admin_theme_id: default_theme_id,
+                 profile_theme_id: default_theme_id }.compact_blank
+
+user = User.new(username: 'dean',
+                email: 'dehartdean@gmail.com',
+                password: 'password',
+                **theme_params)
+
+user.avatar.attach(io: URI.open(gravatar_url_for(user.email)), filename: 'avatar.png', content_type: 'image/png')
+user.save!
 
 Ahoy::Event.destroy_all && Ahoy::Visit.destroy_all
 class RequestFaker

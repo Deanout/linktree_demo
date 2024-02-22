@@ -1,0 +1,31 @@
+.--light-theme {
+  .avatar {
+    border-color: #007bff;
+  }
+
+  body {
+    background-color: #eee;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      color: #0056b3;
+    }
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+
+    &:hover {
+      background-color: #0056b3;
+      color: #fff;
+    }
+  }
+}
