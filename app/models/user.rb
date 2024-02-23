@@ -27,7 +27,9 @@ class User < ApplicationRecord
   attr_writer :login
 
   # Maybe the user should be the owner of the theme?
-  belongs_to :profile_theme, class_name: 'Theme', optional: true
+  # belongs_to :profile_theme, class_name: 'Theme', optional: true
+  belongs_to :profile_theme, class_name: 'Theme', foreign_key: 'profile_theme_id', optional: true
+  belongs_to :admin_theme, class_name: 'Theme', foreign_key: 'admin_theme_id', optional: true
 
   def login
     @login || username || email
@@ -58,6 +60,10 @@ class User < ApplicationRecord
     #                                         # .where('time > ? AND time < ?', 7.days.ago, Time.now)
     #                                         .group('visits.device_type').count
     visits.group(:device_type).count
+  end
+
+  def profile_css_value
+    profile_theme&.css_value || Theme.default_css_value
   end
 
   private
